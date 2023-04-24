@@ -22,23 +22,27 @@ const fetchApi = createAsyncThunk(
 const iptrackerSlice = createSlice({
   name: 'iptracker',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  reducers: {
+    getDetails: (state, action) => {
+      const details = state;
+      details.date = action.payload;
+    },
+  },
+  extraReducers(builder) {
     builder.addCase(fetchApi.pending, (state) => {
-      state.status = 'loading';
-    })
-      .addCase(fetchApi.fulfilled, (state, action) => {
-        state.status = 'success';
-        state.date = action.payload;
-      })
-      .addCase(fetchApi.rejected, (state, action) => {
-        state.status = 'failed';
-        state.details = action.payload;
-      });
-    getDetails = (state, action) => {
-      state.status = 'success';
-      state.date = action.payload;
-    };
+      const isPending = state;
+      isPending.status = 'loading';
+    });
+    builder.addCase(fetchApi.fulfilled, (state, action) => {
+      const isFulfilled = state;
+      isFulfilled.status = 'succeeded';
+      isFulfilled.details = action.payload;
+    });
+    builder.addCase(fetchApi.rejected, (state, action) => {
+      const isRejected = state;
+      isRejected.status = 'failed';
+      isRejected.details = action.payload;
+    });
   },
 });
 
