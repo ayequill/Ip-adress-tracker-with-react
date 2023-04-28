@@ -1,14 +1,14 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
-import iptrackerReducer from './IpTracker/iptrackerSlice';
+// import { configureStore, combineReducers } from '@reduxjs/toolkit';
+// import thunk from 'redux-thunk';
+// import iptrackerReducer from './IpTracker/iptrackerSlice';
 
-const reducer = combineReducers({
-  iptracker: iptrackerReducer,
-});
+// const reducer = combineReducers({
+//   iptracker: iptrackerReducer,
+// });
 
-const store = configureStore({
-  reducer,
-  middleware: [thunk],
-});
+// const store = configureStore({
+//   reducer,
+//   middleware: [thunk],
+// });
 
-export default store;
+// export default store;
