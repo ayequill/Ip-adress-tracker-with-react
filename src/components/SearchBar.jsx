@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Box,
   Heading,
@@ -9,6 +10,8 @@ import {
 import { FaChevronRight } from 'react-icons/fa';
 
 function SearchBar() {
+  const [ipDetails, setIpDetails] = useState({});
+
   return (
     <Flex
       as="header"
@@ -22,7 +25,7 @@ function SearchBar() {
     >
       <Box display="grid" w={{ base: '80%', md: '50%' }}>
         <Heading mt="0.6em" color="white" textAlign="center" fontSize={{ base: '1.7rem' }}>IP Address Tracker</Heading>
-        <InputGroup size="md" mt="8">
+        <InputGroup size="md" mt="8" value={ipDetails} onChange={(e) => setIpDetails(e.target.value)}>
           <Input w="100%" borderRadius=".7em" backgroundColor="white" placeholder="Search for any IP address or domain" border="rgb(87,116,215) solid 1px" />
           <InputRightAddon border="none" backgroundColor="blackAlpha.900"><Icon color="white" as={FaChevronRight} /></InputRightAddon>
         </InputGroup>
