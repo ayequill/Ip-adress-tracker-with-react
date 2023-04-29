@@ -18,7 +18,7 @@ function IpDisplayDetails({ address }) {
 
   return (
     <Box
-      position="fixed"
+      position="absolute"
       top={['15%', '18%', '12%', '16%']}
       left="50%"
       transform={[
