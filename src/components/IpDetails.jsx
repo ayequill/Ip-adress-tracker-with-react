@@ -19,7 +19,7 @@ function IpDisplayDetails({ address }) {
   return (
     <Box
       position="fixed"
-      top={['15%', '18%', '12%', '10%']}
+      top={['15%', '18%', '12%', '16%']}
       left="50%"
       transform={[
         'translate(-50%, 0%)',
