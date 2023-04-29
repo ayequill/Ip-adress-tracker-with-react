@@ -10,6 +10,11 @@ import {
 import { FaChevronRight } from 'react-icons/fa';
 
 function SearchBar({ handleSubmit, handleQuery, searchValue }) {
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    handleQuery(value);
+  };
+
   return (
     <Flex
       as="header"
@@ -22,10 +27,12 @@ function SearchBar({ handleSubmit, handleQuery, searchValue }) {
       justifyContent="center"
     >
       <Box display="grid" w={{ base: '80%', md: '50%' }}>
-        <Heading mt="0.6em" color="white" textAlign="center" fontSize={{ base: '1.7rem' }}>IP Address Tracker</Heading>
-        <InputGroup size="md" mt="8">
-          <Input w="100%" borderRadius=".7em" backgroundColor="white" placeholder="Search for any IP address or domain" border="rgb(87,116,215) solid 1px" value={searchValue} onChange={(e) => handleQuery(e)} />
-          <InputRightAddon border="none" backgroundColor="blackAlpha.900"><Icon color="white" as={FaChevronRight} pointerEvents onClick={handleSubmit} /></InputRightAddon>
+        <Heading mt="0.3em" color="white" textAlign="center" fontSize={{ base: '1.7rem' }}>IP Address Tracker</Heading>
+        <InputGroup size="md" mt={1}>
+          <Input w="100%" borderRadius=".7em" backgroundColor="white" placeholder="Search for any IP address or domain" border="rgb(87,116,215) solid 1px" value={searchValue} onChange={(e) => handleInputChange(e)} />
+          <InputRightAddon border="none" backgroundColor="blackAlpha.900">
+            <Icon color="white" as={FaChevronRight} pointerEvents onClick={handleSubmit} />
+          </InputRightAddon>
         </InputGroup>
       </Box>
     </Flex>
