@@ -16,7 +16,9 @@ function App() {
   useEffect(() => {
     try {
       const fetchIpDetails = async () => {
-        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`);
+        const response = await fetch(
+          `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`,
+        );
         const data = await response.json();
         setAddress(data);
       };
@@ -35,7 +37,9 @@ function App() {
     } else {
       query = `ipAddress=${address.ip}`;
     }
-    const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&${query}`);
+    const res = await fetch(
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&${query}`,
+    );
     const data = await res.json();
     setAddress(data);
   };
@@ -58,7 +62,11 @@ function App() {
 
   return (
     <>
-      <SearchBar searchValue={searchValue} handleQuery={handleQuery} handleSubmit={handleSubmit} />
+      <SearchBar
+        searchValue={searchValue}
+        handleQuery={handleQuery}
+        handleSubmit={handleSubmit}
+      />
       <IpDisplayDetails address={address} />
       <MapContainer address={address} />
     </>

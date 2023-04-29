@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import icon from './icon';
 
 export default function MarkerPosition({ address }) {
-  const position = useMemo(() => [address?.location?.lat, address?.location?.lng], [
-    address?.location?.lat,
-    address?.location?.lng,
-  ]);
+  const position = useMemo(
+    () => [address?.location?.lat, address?.location?.lng],
+    [address?.location?.lat, address?.location?.lng],
+  );
 
   const map = useMap();
 

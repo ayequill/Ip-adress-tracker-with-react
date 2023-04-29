@@ -21,7 +21,11 @@ function IpDisplayDetails({ address }) {
       position="fixed"
       top={['15%', '18%', '12%', '10%']}
       left="50%"
-      transform={['translate(-50%, 0%)', 'translate(-50%, 0%)', 'translate(-50%, 30%)']}
+      transform={[
+        'translate(-50%, 0%)',
+        'translate(-50%, 0%)',
+        'translate(-50%, 30%)',
+      ]}
       zIndex={1000}
       bg="white"
       borderRadius="8"
@@ -30,9 +34,20 @@ function IpDisplayDetails({ address }) {
       minWidth="320px"
       maxWidth="90%"
     >
-      <Stack direction={['column', 'row']} alignItems="center" justifyContent={[null, 'space-around']} divider={<StackDivider />} spacing="0.8em">
+      <Stack
+        direction={['column', 'row']}
+        alignItems="center"
+        justifyContent={[null, 'space-around']}
+        divider={<StackDivider />}
+        spacing="0.8em"
+      >
         <Box textAlign="center">
-          <Text fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold" textTransform="uppercase">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             IP Address
           </Text>
           <Text fontWeight="bold" letterSpacing="1px">
@@ -40,7 +55,12 @@ function IpDisplayDetails({ address }) {
           </Text>
         </Box>
         <Box textAlign="center">
-          <Text fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold" textTransform="uppercase">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             Location
           </Text>
           <Text fontWeight="bold" letterSpacing="1px">
@@ -51,7 +71,12 @@ function IpDisplayDetails({ address }) {
           </Text>
         </Box>
         <Box textAlign="center">
-          <Text fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold" textTransform="uppercase">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             Timezone
           </Text>
           <Text fontWeight="bold" letterSpacing="1px">
@@ -59,7 +84,12 @@ function IpDisplayDetails({ address }) {
           </Text>
         </Box>
         <Box textAlign="center">
-          <Text fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold" textTransform="uppercase">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             ISP
           </Text>
           <Text fontWeight="bold" letterSpacing="1px">
