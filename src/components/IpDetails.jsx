@@ -2,52 +2,102 @@ import PropTypes from 'prop-types';
 import {
   Stack, StackDivider, Text, Box,
 } from '@chakra-ui/react';
-/* Using hardcoded values */
-function IpDisplayDetails({ address }) {
-  return (
 
-    <Stack divider={<StackDivider />} spacing="1.2em" bg="white" top={['20%', '60%', '70%']} left="50%" position="absolute" transform={['translate(-50%, 50%)', 'translate(-50%, 40%)', 'translate(-50%, 30%)']} shadow="md" borderRadius="8" direction={['column', 'row']} alignItems="center" justifyContent={[null, 'space-around']} p={['1em', '1.2em', '2em']} w="90%">
-      {address
-      && (
-      <>
-        <Box>
-          <Text textAlign="center" fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold">
-            IP ADDRESS
+function IpDisplayDetails({ address }) {
+  if (!address) {
+    return null;
+  }
+
+  const { ip, isp, location } = address;
+
+  if (!ip || !isp || !location) {
+    return null;
+  }
+
+  const { city, region, timezone } = location;
+
+  return (
+    <Box
+      position="fixed"
+      top={['15%', '18%', '12%', '16%']}
+      left="50%"
+      transform={[
+        'translate(-50%, 0%)',
+        'translate(-50%, 0%)',
+        'translate(-50%, 30%)',
+      ]}
+      zIndex={1000}
+      bg="white"
+      borderRadius="8"
+      shadow="md"
+      p={['1em', '1.2em', '2em']}
+      minWidth="320px"
+      maxWidth="90%"
+    >
+      <Stack
+        direction={['column', 'row']}
+        alignItems="center"
+        justifyContent={[null, 'space-around']}
+        divider={<StackDivider />}
+        spacing="0.8em"
+      >
+        <Box textAlign="center">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            IP Address
           </Text>
-          <Text color="black" fontWeight="bold" letterSpacing="1px">
-            {address.ip}
+          <Text fontWeight="bold" letterSpacing="1px">
+            {ip}
           </Text>
         </Box>
-        <Box>
-          <Text textAlign="center" fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold">
-            LOCATION
+        <Box textAlign="center">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            Location
           </Text>
-          <Text color="black" fontWeight="bold" letterSpacing="1px">
-            {address.location.city}
+          <Text fontWeight="bold" letterSpacing="1px">
+            {city}
             ,
             {' '}
-            {address.location.region}
+            {region}
           </Text>
         </Box>
-        <Box>
-          <Text textAlign="center" fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold">
-            TIMEZONE
+        <Box textAlign="center">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            Timezone
           </Text>
-          <Text color="black" fontWeight="bold" letterSpacing="1px">
-            {address.location.timezone}
+          <Text fontWeight="bold" letterSpacing="1px">
+            {timezone}
           </Text>
         </Box>
-        <Box>
-          <Text textAlign="center" fontSize="0.65rem" color="blackAlpha.700" fontWeight="bold">
+        <Box textAlign="center">
+          <Text
+            fontSize="0.65rem"
+            color="blackAlpha.700"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             ISP
           </Text>
-          <Text color="black" fontWeight="bold" letterSpacing="1px">
-            {address.isp}
+          <Text fontWeight="bold" letterSpacing="1px">
+            {isp}
           </Text>
         </Box>
-      </>
-      )}
-    </Stack>
+      </Stack>
+    </Box>
   );
 }
 
@@ -60,7 +110,9 @@ IpDisplayDetails.propTypes = {
       region: PropTypes.string.isRequired,
       timezone: PropTypes.string.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
 };
-
+IpDisplayDetails.defaultProps = {
+  address: null,
+};
 export default IpDisplayDetails;
