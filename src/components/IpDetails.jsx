@@ -72,7 +72,6 @@ function IpDisplayDetails({ address }) {
 }
 
 IpDisplayDetails.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   address: PropTypes.shape({
     ip: PropTypes.string.isRequired,
     isp: PropTypes.string.isRequired,
@@ -83,5 +82,7 @@ IpDisplayDetails.propTypes = {
     }).isRequired,
   }),
 };
-
+IpDisplayDetails.defaultProps = {
+  address: null,
+};
 export default IpDisplayDetails;

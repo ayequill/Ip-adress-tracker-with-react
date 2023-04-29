@@ -4,9 +4,14 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import { Box } from '@chakra-ui/react';
 import MarkerPosition from './MarkerPosition';
 
-const MapContainers = ({ address }) => (
-  <Box>
-    {address
+const MapContainers = ({ address }) => {
+  if (!address) {
+    return null;
+  }
+
+  return (
+    <Box>
+      {address
     && (
       <MapContainer center={[address.location.lat, address.location.lng]} zoom={13} scrollWheelZoom style={{ height: '700px', width: '100vw' }}>
         <TileLayer
@@ -16,8 +21,9 @@ const MapContainers = ({ address }) => (
         <MarkerPosition address={address} />
       </MapContainer>
     )}
-  </Box>
-);
+    </Box>
+  );
+};
 
 MapContainers.propTypes = {
   address: PropTypes.shape({
@@ -25,7 +31,11 @@ MapContainers.propTypes = {
       lat: PropTypes.number.isRequired,
       lng: PropTypes.number.isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
+};
+
+MapContainers.defaultProps = {
+  address: null,
 };
 
 export default MapContainers;
