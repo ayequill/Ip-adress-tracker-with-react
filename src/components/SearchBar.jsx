@@ -15,6 +15,12 @@ function SearchBar({ handleSubmit, handleQuery, searchValue }) {
     const { value } = e.target;
     handleQuery(value);
   };
+  const handleKeyUp = ((e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+      e.target.blur();
+    }
+  });
 
   return (
     <Flex
@@ -48,6 +54,7 @@ function SearchBar({ handleSubmit, handleQuery, searchValue }) {
             border="rgb(87,116,215) solid 1px"
             value={searchValue}
             onChange={(e) => handleInputChange(e)}
+            onKeyUp={(e) => handleKeyUp(e)}
           />
           <InputRightAddon border="none" backgroundColor="blackAlpha.900">
             <Icon
