@@ -9,6 +9,8 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { FaChevronRight } from 'react-icons/fa';
+import Desktop from '../assets/pattern-bg-desktop.png';
+import Mobile from '../assets/pattern-bg-mobile.png';
 
 function SearchBar({ handleSubmit, handleQuery, searchValue }) {
   const handleInputChange = (e) => {
@@ -30,8 +32,8 @@ function SearchBar({ handleSubmit, handleQuery, searchValue }) {
       backgroundRepeat="no-repeat"
       backgroundPosition="center"
       backgroundImage={{
-        base: 'src/assets/pattern-bg-mobile.png',
-        md: 'src/assets/pattern-bg-desktop.png',
+        base: Mobile,
+        md: Desktop,
       }}
       alignItems="start"
       justifyContent="center"
