@@ -1,7 +1,7 @@
 import React, {
   useEffect, useState, useCallback, useRef,
 } from 'react';
-import fetchIpDetails from './fetchAPI';
+import { fetchIpDetails } from './redux/IpTracker/iptrackerSlice';
 import SearchBar from './components/SearchBar';
 import IpDisplayDetails from './components/IpDetails';
 import MapContainer from './components/MapContainer';
